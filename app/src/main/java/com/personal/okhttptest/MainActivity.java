@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.personal.okhttptest.constant.Url;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
@@ -42,12 +43,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void initData() {
         OkHttpClient okHttpClient = new OkHttpClient();
-        Request build = new Request.Builder().url("http://img.my.csdn.net/uploads/201508/05/1438760726_5120.jpg").build();
+        Request build = new Request.Builder().url(Url.imageUrls[10]).build();
         Call call = okHttpClient.newCall(build);
         call.enqueue(new Callback() {
 
             private Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
-            private String string = "Hello";
+            private String string = "HelloWorld";
 
             @Override
             public void onFailure(Request request, IOException e) {
